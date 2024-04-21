@@ -50,8 +50,24 @@ const useConnect = () => {
     }
   }
 
+  const disconnect = () => {
+    if (!accountContext) {
+      throw new Error('useAccount must be used within an AccountProvider')
+    }
+
+    const [, dispatch] = accountContext
+
+    dispatch({
+      type: 'SET_ACCOUNT',
+      payload: {
+        address: null,
+      },
+    })
+  }
+
   return {
     connect,
+    disconnect,
   }
 }
 

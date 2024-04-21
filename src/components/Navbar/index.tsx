@@ -9,12 +9,13 @@ import Button from '@mui/material/Button'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 // Components
-import ConnectWalletButton from '@/components/Navbar/ConnectWalletButton'
+import WalletConnetingButton from '@/components/Navbar/WalletConnectingButton'
+import WalletConnectButton from '@/components/Navbar/WalletConnectButton'
+// Hooks
+import useAccount from '@/hooks/useAccount'
 
 const Navbar = () => {
-  const handler = async () => {
-    //
-  }
+  const { address } = useAccount()
 
   return (
     <AppBar
@@ -28,18 +29,16 @@ const Navbar = () => {
           {APP_NAME}
         </Typography>
         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-          <Button color="inherit" onClick={handler}>
-            Swap
-          </Button>
-          <Button color="inherit" onClick={handler}>
-            Liquidity
-          </Button>
-          <Button color="inherit" onClick={handler}>
-            Faucet
-          </Button>
+          <Button color="inherit">Swap</Button>
+          <Button color="inherit">Liquidity</Button>
+          <Button color="inherit">Faucet</Button>
         </Box>
         <Box sx={{ flexGrow: 0 }}>
-          <ConnectWalletButton />
+          {address ? (
+            <WalletConnetingButton address={address} />
+          ) : (
+            <WalletConnectButton />
+          )}
         </Box>
       </Toolbar>
     </AppBar>
