@@ -11,7 +11,9 @@ export const AccountContext = createContext<
   [Account, Dispatch<AccountReducerAction>] | undefined
 >(undefined)
 
-export const AccountContextProvider: React.FC<AccountProviderProps> = ({ children }) => {
+export const AccountContextProvider: React.FC<AccountProviderProps> = ({
+  children,
+}) => {
   const [account, dispatch] = useReducer(accountReducer, accountInitialState)
 
   return (

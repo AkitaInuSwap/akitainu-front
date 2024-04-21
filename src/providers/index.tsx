@@ -1,4 +1,4 @@
-import {AccountContextProvider} from '@/providers/AccountContextProvider'
+import { AccountContextProvider } from '@/providers/AccountContextProvider'
 import type { ReactNode } from 'react'
 
 interface ProvidersProps {

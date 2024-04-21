@@ -24,7 +24,11 @@ const ConnectWalletButton = () => {
   return (
     <>
       {address ? (
-        <Button variant="outlined" color="inherit" sx={{ textTransform: 'none' }}>
+        <Button
+          variant="outlined"
+          color="inherit"
+          sx={{ textTransform: 'none' }}
+        >
           {address.slice(0, 3)}...{address.slice(-6)}
         </Button>
       ) : (
