@@ -1,10 +1,12 @@
+'use client'
+
 // Config
 import { APP_NAME } from '@/config/site'
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import Navbar from '@/components/Navbar'
 import styles from '@/styles/Home.module.css'
+import Layout from '@/components/Layout'
 import type { ReactElement } from 'react'
 import type { NextPageWithLayout } from './_app'
 
@@ -25,12 +27,7 @@ const Home: NextPageWithLayout = () => {
 }
 
 Home.getLayout = function getLayout(page: ReactElement) {
-  return (
-    <>
-      <Navbar />
-      {page}
-    </>
-  )
+  return <Layout>{page}</Layout>
 }
 
 export default Home

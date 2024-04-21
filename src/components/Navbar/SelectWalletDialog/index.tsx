@@ -1,3 +1,5 @@
+'use client'
+
 // Config
 import { WALLET_TYPES, WALLETS } from '@/config/wallets'
 // MUI
@@ -6,7 +8,7 @@ import Dialog from '@mui/material/Dialog'
 import DialogTitle from '@mui/material/DialogTitle'
 import DialogContent from '@mui/material/DialogContent'
 // Hooks
-import useWalletConnect from '@/hooks/useWalletConnect'
+import useConnect from '@/hooks/useConnect'
 
 type SelectWalletDialogProps = {
   open: boolean
@@ -14,7 +16,7 @@ type SelectWalletDialogProps = {
 }
 
 const SelectWalletDialog = ({ open, onClose }: SelectWalletDialogProps) => {
-  const { connect } = useWalletConnect()
+  const { connect } = useConnect()
 
   const handleConnect = async (type: WALLET_TYPES) => {
     try {

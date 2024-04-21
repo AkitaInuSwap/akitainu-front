@@ -1,4 +1,5 @@
 'use client'
+
 // Config
 import { APP_NAME } from '@/config/site'
 // MUI
