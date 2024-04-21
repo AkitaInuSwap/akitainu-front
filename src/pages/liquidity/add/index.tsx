@@ -114,7 +114,7 @@ const LiquidityAdd: NextPageWithLayout = () => {
           <Step key={3}>
             <StepLabel>INITIAL FEE</StepLabel>
             <StepContent>
-            <Box sx={{ mb: 2 }}>
+              <Box sx={{ mb: 2 }}>
                 <Typography>hoge</Typography>
               </Box>
               <Box sx={{ mb: 2 }}>
@@ -141,7 +141,7 @@ const LiquidityAdd: NextPageWithLayout = () => {
           <Step key={3}>
             <StepLabel>CONFIRMATION</StepLabel>
             <StepContent>
-            <Box sx={{ mb: 2 }}>
+              <Box sx={{ mb: 2 }}>
                 <Typography>hoge</Typography>
               </Box>
               <Box sx={{ mb: 2 }}>
@@ -168,7 +168,7 @@ const LiquidityAdd: NextPageWithLayout = () => {
           <Step key={4}>
             <StepLabel>CONPLETE</StepLabel>
             <StepContent>
-            <Box sx={{ mb: 2 }}>
+              <Box sx={{ mb: 2 }}>
                 <Typography>hoge</Typography>
               </Box>
               <Box sx={{ mb: 2 }}>
