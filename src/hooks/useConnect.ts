@@ -1,11 +1,17 @@
 // Config
 import { WALLET_TYPES } from '@/config/wallets'
+// React
+import { useContext } from 'react'
 // Crossmark
 import crossmark from '@crossmarkio/sdk'
 // Gem Wallet
 import gem from '@gemwallet/api'
+// Context
+import { AccountContext } from '@/providers/AccountContextProvider'
 
-const useWalletConnect = () => {
+const useConnect = () => {
+  const accountContext = useContext(AccountContext)
+
   const connect = async (type: WALLET_TYPES) => {
     switch (type) {
       case WALLET_TYPES.CROSSMARK:
@@ -18,7 +24,18 @@ const useWalletConnect = () => {
         const address = response.data.address
         const network = response.data.network
 
-        // TODO: Session
+        if (!accountContext) {
+          throw new Error('useAccount must be used within an AccountProvider')
+        }
+
+        const [, dispatch] = accountContext
+
+        dispatch({
+          type: 'SET_ACCOUNT',
+          payload: {
+            address,
+          },
+        })
 
         break
       case WALLET_TYPES.GEM_WALLET:
@@ -38,4 +55,4 @@ const useWalletConnect = () => {
   }
 }
 
-export default useWalletConnect
+export default useConnect
