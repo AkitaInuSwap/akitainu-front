@@ -33,7 +33,8 @@ const Liquidity: NextPageWithLayout = () => {
           Liquidity
         </Typography>
         <Typography component="p" variant="subtitle2" sx={{ color: 'grey' }}>
-          Add or remove liquidity for XRPL pools here. Select a token pair, input amounts, and confirm to earn fees.
+          Add or remove liquidity for XRPL pools here. Select a token pair,
+          input amounts, and confirm to earn fees.
         </Typography>
       </Grid>
       <Grid xs={12}>

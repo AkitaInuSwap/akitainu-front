@@ -30,7 +30,13 @@ const Home: NextPageWithLayout = () => {
       </Head>
       <Grid container spacing={2}>
         <Grid xs={12}>
-          <Image src="/akitainuswap.png" alt="Akita Inu" layout="responsive" width={800} height={500} />
+          <Image
+            src="/akitainuswap.png"
+            alt="Akita Inu"
+            layout="responsive"
+            width={800}
+            height={500}
+          />
         </Grid>
 
         <Grid xs={12} sx={{ my: 2, textAlign: 'center' }}>
@@ -41,7 +47,11 @@ const Home: NextPageWithLayout = () => {
 
         <Grid xs={12}>
           <Typography component="p" variant="subtitle2" sx={{ color: 'grey' }}>
-            Welcome to AkitaInuSwap. Here, AkitaInu is committed to operating our decentralized exchange with reliability and integrity. Join us for a seamless trading experience, where you have complete control over your financial transactions in a secure and trustless environment.
+            Welcome to AkitaInuSwap. Here, AkitaInu is committed to operating
+            our decentralized exchange with reliability and integrity. Join us
+            for a seamless trading experience, where you have complete control
+            over your financial transactions in a secure and trustless
+            environment.
           </Typography>
         </Grid>
 
@@ -56,20 +66,32 @@ const Home: NextPageWithLayout = () => {
         </Grid>
 
         <Grid xs={12}>
-          <Typography component="h6" variant="h6" sx={{ mb: 1, cursor: 'pointer' }} onClick={() => router.push('/swap')}>
+          <Typography
+            component="h6"
+            variant="h6"
+            sx={{ mb: 1, cursor: 'pointer' }}
+            onClick={() => router.push('/swap')}
+          >
             Swap
           </Typography>
           <Typography component="p" variant="subtitle2" sx={{ color: 'grey' }}>
-            Exchange one type of token for another quickly and securely on the XRPL.
+            Exchange one type of token for another quickly and securely on the
+            XRPL.
           </Typography>
         </Grid>
 
         <Grid xs={12}>
-          <Typography component="h6" variant="h6" sx={{ mb: 1, cursor: 'pointer' }} onClick={() => router.push('/liquidity')}>
+          <Typography
+            component="h6"
+            variant="h6"
+            sx={{ mb: 1, cursor: 'pointer' }}
+            onClick={() => router.push('/liquidity')}
+          >
             Liquidity
           </Typography>
           <Typography component="p" variant="subtitle2" sx={{ color: 'grey' }}>
-            Add or remove liquidity for XRPL pools here. Select a token pair, input amounts, and confirm to earn fees.
+            Add or remove liquidity for XRPL pools here. Select a token pair,
+            input amounts, and confirm to earn fees.
           </Typography>
         </Grid>
 
@@ -90,7 +112,13 @@ const Home: NextPageWithLayout = () => {
         </Grid>
 
         <Grid xs={6}>
-          <Image src="/akitainu1.png" alt="Akita Inu" layout="responsive" width={250} height={250} />
+          <Image
+            src="/akitainu1.png"
+            alt="Akita Inu"
+            layout="responsive"
+            width={250}
+            height={250}
+          />
         </Grid>
 
         <Grid xs={12} sx={{ mt: 2 }}>
@@ -110,7 +138,13 @@ const Home: NextPageWithLayout = () => {
         </Grid>
 
         <Grid xs={6} sx={{ mb: 8 }}>
-          <Image src="/akitainu2.png" alt="Akita Inu" layout="responsive" width={250} height={250} />
+          <Image
+            src="/akitainu2.png"
+            alt="Akita Inu"
+            layout="responsive"
+            width={250}
+            height={250}
+          />
         </Grid>
       </Grid>
     </>
