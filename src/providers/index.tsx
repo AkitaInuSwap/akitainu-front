@@ -1,4 +1,5 @@
 import { AccountContextProvider } from '@/providers/AccountContextProvider'
+import ThemeProvider from '@/providers/ThemeProvider'
 import type { ReactNode } from 'react'
 
 interface ProvidersProps {
@@ -6,7 +7,13 @@ interface ProvidersProps {
 }
 
 const Providers: React.FC<ProvidersProps> = ({ children }) => {
-  return <AccountContextProvider>{children}</AccountContextProvider>
+  return (
+    <ThemeProvider>
+      <AccountContextProvider>
+        {children}
+      </AccountContextProvider>
+    </ThemeProvider>
+  )
 }
 
 export default Providers
