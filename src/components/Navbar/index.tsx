@@ -29,15 +29,9 @@ const Navbar = () => {
           {APP_NAME}
         </Typography>
         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-          <Button color="inherit">
-            Swap
-          </Button>
-          <Button color="inherit">
-            Liquidity
-          </Button>
-          <Button color="inherit">
-            Faucet
-          </Button>
+          <Button color="inherit">Swap</Button>
+          <Button color="inherit">Liquidity</Button>
+          <Button color="inherit">Faucet</Button>
         </Box>
         <Box sx={{ flexGrow: 0 }}>
           {address ? (

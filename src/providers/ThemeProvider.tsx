@@ -1,4 +1,7 @@
-import { createTheme, ThemeProvider as MuiThemeProvider } from '@mui/material/styles'
+import {
+  createTheme,
+  ThemeProvider as MuiThemeProvider,
+} from '@mui/material/styles'
 import { Source_Code_Pro } from 'next/font/google'
 import type { ReactNode } from 'react'
 
@@ -19,11 +22,7 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     },
   })
 
-  return (
-    <MuiThemeProvider theme={theme}>
-      {children}
-    </MuiThemeProvider>
-  )
+  return <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>
 }
 
 export default ThemeProvider

@@ -6,14 +6,14 @@ import ButtonGroup from '@mui/material/ButtonGroup'
 import ClickAwayListener from '@mui/material/ClickAwayListener'
 import Divider from '@mui/material/Divider'
 import Grow from '@mui/material/Grow'
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
+import ListItemIcon from '@mui/material/ListItemIcon'
+import ListItemText from '@mui/material/ListItemText'
 import Paper from '@mui/material/Paper'
 import Popper from '@mui/material/Popper'
 import MenuItem from '@mui/material/MenuItem'
 import MenuList from '@mui/material/MenuList'
-import LogoutIcon from '@mui/icons-material/Logout';
-import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
+import LogoutIcon from '@mui/icons-material/Logout'
+import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet'
 // Hooks
 import useConnect from '@/hooks/useConnect'
 
@@ -21,7 +21,9 @@ interface WalletConnetingButtonProps {
   address: string
 }
 
-const WalletConnetingButton: React.FC<WalletConnetingButtonProps> = ({ address }) => {
+const WalletConnetingButton: React.FC<WalletConnetingButtonProps> = ({
+  address,
+}) => {
   const { disconnect } = useConnect()
 
   const anchorRef = useRef<HTMLDivElement>(null)
@@ -64,12 +66,7 @@ const WalletConnetingButton: React.FC<WalletConnetingButtonProps> = ({ address }
           {address.slice(0, 3)}...{address.slice(-6)}
         </Button>
       </ButtonGroup>
-      <Popper
-        open={open}
-        anchorEl={anchorRef.current}
-        transition
-        disablePortal
-      >
+      <Popper open={open} anchorEl={anchorRef.current} transition disablePortal>
         {({ TransitionProps }) => (
           <Grow
             {...TransitionProps}

@@ -9,9 +9,7 @@ interface ProvidersProps {
 const Providers: React.FC<ProvidersProps> = ({ children }) => {
   return (
     <ThemeProvider>
-      <AccountContextProvider>
-        {children}
-      </AccountContextProvider>
+      <AccountContextProvider>{children}</AccountContextProvider>
     </ThemeProvider>
   )
 }
