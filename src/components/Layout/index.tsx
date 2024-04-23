@@ -21,7 +21,7 @@ const Layout: React.FC<LayoutProps> = ({ children, navigations }) => {
   return (
     <Providers>
       <Navbar />
-      <Container maxWidth="sm" sx={{ mt: 12, backgroundColor: '#fffffc' }}>
+      <Container maxWidth="md" sx={{ mt: 12 }}>
         {navigations && (
           <Grid container spacing={2}>
             <Grid xs={12} sx={{ mb: 2 }}>

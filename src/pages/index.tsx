@@ -8,10 +8,14 @@ import styles from '@/styles/Home.module.css'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 // MUI
+import Button from '@mui/material/Button'
+import CardActionArea from '@mui/material/CardActionArea'
+import CardContent from '@mui/material/CardContent'
 import Divider from '@mui/material/Divider'
 import Grid from '@mui/material/Unstable_Grid2'
 import Typography from '@mui/material/Typography'
 // Components
+import Card from '@/components/Card'
 import Layout from '@/components/Layout'
 // Types
 import type { ReactElement } from 'react'
@@ -29,7 +33,7 @@ const Home: NextPageWithLayout = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Grid container spacing={2}>
-        <Grid xs={12}>
+        <Grid xs={12} sx={{ mb: 2 }}>
           <Image
             src="/akitainuswap.png"
             alt="Akita Inu"
@@ -39,14 +43,15 @@ const Home: NextPageWithLayout = () => {
           />
         </Grid>
 
-        <Grid xs={12} sx={{ my: 2, textAlign: 'center' }}>
-          <Typography component="h4" variant="h4" sx={{ fontWeight: 'bold' }}>
+        <Grid xs={12} sx={{ mb: 3 }}>
+          <Typography
+            component="h4"
+            variant="h4"
+            sx={{ mb: 3, fontWeight: 'bold', textAlign: 'center' }}
+          >
             About
           </Typography>
-        </Grid>
-
-        <Grid xs={12}>
-          <Typography component="p" variant="subtitle2" sx={{ color: 'grey' }}>
+          <Typography component="p" variant="body1" sx={{ color: '#2b2b2b' }}>
             Welcome to AkitaInuSwap. Here, AkitaInu is committed to operating
             our decentralized exchange with reliability and integrity. Join us
             for a seamless trading experience, where you have complete control
@@ -55,58 +60,68 @@ const Home: NextPageWithLayout = () => {
           </Typography>
         </Grid>
 
-        <Grid xs={12} sx={{ mt: 2 }}>
+        <Grid xs={12} sx={{ mb: 3 }}>
           <Divider />
         </Grid>
 
-        <Grid xs={12} sx={{ my: 2, textAlign: 'center' }}>
-          <Typography component="h4" variant="h4" sx={{ fontWeight: 'bold' }}>
+        <Grid xs={12}>
+          <Typography
+            component="h4"
+            variant="h4"
+            sx={{ mb: 2, fontWeight: 'bold', textAlign: 'center' }}
+          >
             Discover the Ecosystem
           </Typography>
         </Grid>
 
-        <Grid xs={12}>
-          <Typography
-            component="h6"
-            variant="h6"
-            sx={{ mb: 1, cursor: 'pointer' }}
-            onClick={() => router.push('/swap')}
-          >
-            Swap
-          </Typography>
-          <Typography component="p" variant="subtitle2" sx={{ color: 'grey' }}>
-            Exchange one type of token for another quickly and securely on the
-            XRPL.
-          </Typography>
+        <Grid xs={6}>
+          <Card>
+            <CardActionArea onClick={() => router.push('/swap')}>
+              <CardContent>
+                <Typography component="h5" variant="h5" sx={{ mb: 1 }}>
+                  Swap
+                </Typography>
+                <Typography>
+                  Exchange one type of token for another quickly and securely on
+                  the XRPL.
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
         </Grid>
 
-        <Grid xs={12}>
-          <Typography
-            component="h6"
-            variant="h6"
-            sx={{ mb: 1, cursor: 'pointer' }}
-            onClick={() => router.push('/liquidity')}
-          >
-            Liquidity
-          </Typography>
-          <Typography component="p" variant="subtitle2" sx={{ color: 'grey' }}>
-            Add or remove liquidity for XRPL pools here. Select a token pair,
-            input amounts, and confirm to earn fees.
-          </Typography>
+        <Grid xs={6}>
+          <Card>
+            <CardActionArea onClick={() => router.push('/liquidity')}>
+              <CardContent>
+                <Typography component="h5" variant="h5" sx={{ mb: 1 }}>
+                  Liquidity
+                </Typography>
+                <Typography>
+                  Add or remove liquidity for XRPL pools here. Select a token
+                  pair, input amounts, and confirm to earn fees.
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
         </Grid>
 
-        <Grid xs={12} sx={{ mt: 2 }}>
+        <Grid xs={12} sx={{ my: 3 }}>
           <Divider />
         </Grid>
 
-        <Grid xs={12} sx={{ my: 2, textAlign: 'center' }}>
-          <Typography component="h4" variant="h4" sx={{ fontWeight: 'bold' }}>
+        <Grid xs={12}>
+          <Typography
+            component="h4"
+            variant="h4"
+            sx={{ mb: 2, fontWeight: 'bold', textAlign: 'center' }}
+          >
             Tokenomics
           </Typography>
         </Grid>
 
         <Grid xs={6}>
-          <Typography component="p" variant="subtitle2" sx={{ color: 'grey' }}>
+          <Typography component="p" variant="body1" sx={{ color: '#2b2b2b' }}>
             Comming soon...
           </Typography>
         </Grid>
@@ -121,18 +136,22 @@ const Home: NextPageWithLayout = () => {
           />
         </Grid>
 
-        <Grid xs={12} sx={{ mt: 2 }}>
+        <Grid xs={12} sx={{ my: 3 }}>
           <Divider />
         </Grid>
 
-        <Grid xs={12} sx={{ my: 2, textAlign: 'center' }}>
-          <Typography component="h4" variant="h4" sx={{ fontWeight: 'bold' }}>
+        <Grid xs={12}>
+          <Typography
+            component="h4"
+            variant="h4"
+            sx={{ mb: 2, fontWeight: 'bold', textAlign: 'center' }}
+          >
             Roadmap
           </Typography>
         </Grid>
 
         <Grid xs={6}>
-          <Typography component="p" variant="subtitle2" sx={{ color: 'grey' }}>
+          <Typography component="p" variant="body1" sx={{ color: '#2b2b2b' }}>
             Comming soon...
           </Typography>
         </Grid>
