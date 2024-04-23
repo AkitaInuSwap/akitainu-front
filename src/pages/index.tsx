@@ -78,11 +78,7 @@ const Home: NextPageWithLayout = () => {
           <Card>
             <CardActionArea onClick={() => router.push('/swap')}>
               <CardContent>
-                <Typography
-                  component="h5"
-                  variant="h5"
-                  sx={{ mb: 1 }}
-                >
+                <Typography component="h5" variant="h5" sx={{ mb: 1 }}>
                   Swap
                 </Typography>
                 <Typography>
@@ -98,11 +94,7 @@ const Home: NextPageWithLayout = () => {
           <Card>
             <CardActionArea onClick={() => router.push('/liquidity')}>
               <CardContent>
-                <Typography
-                  component="h5"
-                  variant="h5"
-                  sx={{ mb: 1 }}
-                >
+                <Typography component="h5" variant="h5" sx={{ mb: 1 }}>
                   Liquidity
                 </Typography>
                 <Typography>
