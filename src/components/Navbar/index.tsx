@@ -20,11 +20,16 @@ const Navbar = () => {
   const { address } = useAccount()
   const router = useRouter()
 
+  // 別タブで開く
+  const openLink = (url: string) => {
+    window.open(url, '_blank')
+  }
+
   return (
     <AppBar
       elevation={0}
       sx={{
-        backgroundColor: '#232f3e',
+        backgroundColor: '#583822',
       }}
     >
       <Toolbar>
@@ -40,6 +45,14 @@ const Navbar = () => {
           </Button>
           <Button color="inherit" onClick={() => router.push('/liquidity')}>
             Liquidity
+          </Button>
+          <Button
+            color="inherit"
+            onClick={() =>
+              openLink('https://metaakitafinance.gitbook.io/akitainu-swap/')
+            }
+          >
+            Docs
           </Button>
         </Box>
         <Box sx={{ flexGrow: 0 }}>
