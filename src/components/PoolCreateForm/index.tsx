@@ -110,31 +110,59 @@ const PoolCreateForm: React.FC<PoolCreateFormProps> = ({
               </Typography>
             </Grid>
             <Grid xs={6}>
-              <Typography>Balance: </Typography>
-              <TextField fullWidth />
+              <Box display="flex" alignItems="center" sx={{ mb: 1 }}>
+                <Image
+                  src={iconURL}
+                  alt="icon"
+                  width={32}
+                  height={32}
+                  layout="fixed"
+                />
+                <Box>
+                  <Typography variant="body1" marginLeft={1}>
+                    XRP
+                  </Typography>
+                  <Typography variant="body1" marginLeft={1}>
+                    Balance:{' '}
+                  </Typography>
+                </Box>
+              </Box>
+              <TextField fullWidth placeholder="0.0" />
             </Grid>
             <Grid xs={6}>
-              <Typography>Balance: </Typography>
-              <TextField fullWidth />
+              <Box display="flex" alignItems="center" sx={{ mb: 1 }}>
+                <Image
+                  src={iconURL}
+                  alt="icon"
+                  width={32}
+                  height={32}
+                  layout="fixed"
+                />
+                <Box>
+                  <Typography variant="body1" marginLeft={1}>
+                    XRP
+                  </Typography>
+                  <Typography variant="body1" marginLeft={1}>
+                    Balance:{' '}
+                  </Typography>
+                </Box>
+              </Box>
+              <TextField fullWidth placeholder="0.0" />
+            </Grid>
+            <Grid xs={12}>
+              <Button
+                variant="outlined"
+                disableElevation
+                sx={{ mr: 1 }}
+                onClick={handleBack}
+              >
+                Back
+              </Button>
+              <Button variant="contained" disableElevation onClick={handleNext}>
+                Next
+              </Button>
             </Grid>
           </Grid>
-          <Box></Box>
-          <Button
-            variant="outlined"
-            disableElevation
-            sx={{ mt: 1, mr: 1 }}
-            onClick={handleBack}
-          >
-            Back
-          </Button>
-          <Button
-            variant="contained"
-            disableElevation
-            sx={{ mt: 1, mr: 1 }}
-            onClick={handleNext}
-          >
-            Next
-          </Button>
         </StepContent>
       </Step>
 
@@ -142,24 +170,29 @@ const PoolCreateForm: React.FC<PoolCreateFormProps> = ({
       <Step key={3}>
         <StepLabel>INITIAL FEE</StepLabel>
         <StepContent>
-          <Typography>トークンを選択してください。</Typography>
-          <Box></Box>
-          <Button
-            variant="outlined"
-            disableElevation
-            sx={{ mt: 1, mr: 1 }}
-            onClick={handleBack}
-          >
-            Back
-          </Button>
-          <Button
-            variant="contained"
-            disableElevation
-            sx={{ mt: 1, mr: 1 }}
-            onClick={handleNext}
-          >
-            Next
-          </Button>
+          <Grid container spacing={2}>
+            <Grid xs={12}>
+              <Typography component="p" variant="body1" sx={{ color: 'grey' }}>
+                Please set the fees.
+              </Typography>
+            </Grid>
+            <Grid xs={12}>
+              <TextField fullWidth placeholder="0.0" />
+            </Grid>
+            <Grid xs={12}>
+              <Button
+                variant="outlined"
+                disableElevation
+                sx={{ mr: 1 }}
+                onClick={handleBack}
+              >
+                Back
+              </Button>
+              <Button variant="contained" disableElevation onClick={handleNext}>
+                Next
+              </Button>
+            </Grid>
+          </Grid>
         </StepContent>
       </Step>
 
@@ -167,24 +200,26 @@ const PoolCreateForm: React.FC<PoolCreateFormProps> = ({
       <Step key={4}>
         <StepLabel>CONFIRMATION</StepLabel>
         <StepContent>
-          <Typography>トークンを選択してください。</Typography>
-          <Box></Box>
-          <Button
-            variant="outlined"
-            disableElevation
-            sx={{ mt: 1, mr: 1 }}
-            onClick={handleBack}
-          >
-            Back
-          </Button>
-          <Button
-            variant="contained"
-            disableElevation
-            sx={{ mt: 1, mr: 1 }}
-            onClick={handleNext}
-          >
-            Next
-          </Button>
+          <Grid container spacing={2}>
+            <Grid xs={12}>
+              <Typography component="p" variant="body1" sx={{ color: 'grey' }}>
+                Please confirm the details.
+              </Typography>
+            </Grid>
+            <Grid xs={12}>
+              <Button
+                variant="outlined"
+                disableElevation
+                sx={{ mr: 1 }}
+                onClick={handleBack}
+              >
+                Back
+              </Button>
+              <Button variant="contained" disableElevation onClick={handleNext}>
+                Next
+              </Button>
+            </Grid>
+          </Grid>
         </StepContent>
       </Step>
     </Stepper>
