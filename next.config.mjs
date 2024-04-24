@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['assets.pancakeswap.finance'],
+    domains: ['assets.pancakeswap.finance', 's2.coinmarketcap.com'],
   },
 }
 
