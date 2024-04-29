@@ -16,7 +16,7 @@ import CardHeader from '@mui/material/CardHeader'
 import Divider from '@mui/material/Divider'
 import Grid from '@mui/material/Unstable_Grid2'
 import Typography from '@mui/material/Typography'
-import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
+import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded'
 // Components
 import Layout from '@/components/Layout'
 // Types
@@ -52,7 +52,14 @@ const Home: NextPageWithLayout = () => {
               </Typography>
             </Box>
             <Box sx={{ mt: 4 }}>
-              <Button variant="outlined" color="inherit" endIcon={<ArrowForwardRoundedIcon />} onClick={() => router.push('/swap')}>Try Trading</Button>
+              <Button
+                variant="outlined"
+                color="inherit"
+                endIcon={<ArrowForwardRoundedIcon />}
+                onClick={() => router.push('/swap')}
+              >
+                Try Trading
+              </Button>
             </Box>
           </Grid>
           <Grid xs={6}>
@@ -69,13 +76,20 @@ const Home: NextPageWithLayout = () => {
             <Typography component="h4" variant="h4">
               What is AkitaInuSwap?
             </Typography>
-            <Typography component="p" variant="subtitle2" sx={{ mt: 2, color: '#c0c0c0', fontWeight: '200' }}>
+            <Typography
+              component="p"
+              variant="subtitle2"
+              sx={{ mt: 2, color: '#c0c0c0', fontWeight: '200' }}
+            >
               A hyper-efficient decentralized crypto marketplace built on XRPL
             </Typography>
           </Grid>
 
           <Grid xs={6}>
-            <Card variant="outlined" sx={{ backgroundColor: '#404040', color: "white"  }}>
+            <Card
+              variant="outlined"
+              sx={{ backgroundColor: '#404040', color: 'white' }}
+            >
               <CardContent sx={{ px: 6 }}>
                 <Typography component="h6" variant="h6">
                   Trade
@@ -88,7 +102,10 @@ const Home: NextPageWithLayout = () => {
           </Grid>
 
           <Grid xs={6}>
-            <Card variant="outlined" sx={{ backgroundColor: '#404040', color: "white"  }}>
+            <Card
+              variant="outlined"
+              sx={{ backgroundColor: '#404040', color: 'white' }}
+            >
               <CardContent sx={{ px: 6 }}>
                 <Typography component="h6" variant="h6">
                   Earn
@@ -107,9 +124,20 @@ const Home: NextPageWithLayout = () => {
           </Grid>
 
           <Grid xs={3}>
-            <Card variant="outlined" sx={{ backgroundColor: '#404040', color: "white", textAlign: 'center' }}>
+            <Card
+              variant="outlined"
+              sx={{
+                backgroundColor: '#404040',
+                color: 'white',
+                textAlign: 'center',
+              }}
+            >
               <CardContent>
-                <Typography component="p" variant="subtitle2" sx={{ mt: 1, fontWeight: '200' }}>
+                <Typography
+                  component="p"
+                  variant="subtitle2"
+                  sx={{ mt: 1, fontWeight: '200' }}
+                >
                   Simplest Trades, Best Prices
                 </Typography>
               </CardContent>
@@ -117,9 +145,20 @@ const Home: NextPageWithLayout = () => {
           </Grid>
 
           <Grid xs={3}>
-            <Card variant="outlined" sx={{ backgroundColor: '#404040', color: "white", textAlign: 'center' }}>
+            <Card
+              variant="outlined"
+              sx={{
+                backgroundColor: '#404040',
+                color: 'white',
+                textAlign: 'center',
+              }}
+            >
               <CardContent>
-                <Typography component="p" variant="subtitle2" sx={{ mt: 1, fontWeight: '200' }}>
+                <Typography
+                  component="p"
+                  variant="subtitle2"
+                  sx={{ mt: 1, fontWeight: '200' }}
+                >
                   Frictionless Liquidity Provision
                 </Typography>
               </CardContent>
@@ -127,9 +166,20 @@ const Home: NextPageWithLayout = () => {
           </Grid>
 
           <Grid xs={3}>
-            <Card variant="outlined" sx={{ backgroundColor: '#404040', color: "white", textAlign: 'center' }}>
+            <Card
+              variant="outlined"
+              sx={{
+                backgroundColor: '#404040',
+                color: 'white',
+                textAlign: 'center',
+              }}
+            >
               <CardContent>
-                <Typography component="p" variant="subtitle2" sx={{ mt: 1, fontWeight: '200' }}>
+                <Typography
+                  component="p"
+                  variant="subtitle2"
+                  sx={{ mt: 1, fontWeight: '200' }}
+                >
                   Discovery of Market Trends
                 </Typography>
               </CardContent>
@@ -137,9 +187,20 @@ const Home: NextPageWithLayout = () => {
           </Grid>
 
           <Grid xs={3}>
-            <Card variant="outlined" sx={{ backgroundColor: '#404040', color: "white", textAlign: 'center' }}>
+            <Card
+              variant="outlined"
+              sx={{
+                backgroundColor: '#404040',
+                color: 'white',
+                textAlign: 'center',
+              }}
+            >
               <CardContent>
-                <Typography component="p" variant="subtitle2" sx={{ mt: 1, fontWeight: '200' }}>
+                <Typography
+                  component="p"
+                  variant="subtitle2"
+                  sx={{ mt: 1, fontWeight: '200' }}
+                >
                   Non-custodial Platform
                 </Typography>
               </CardContent>
@@ -150,16 +211,29 @@ const Home: NextPageWithLayout = () => {
             <Typography component="h4" variant="h4">
               Investors and Partners
             </Typography>
-            <Typography component="p" variant="subtitle2" sx={{ mt: 2, color: '#c0c0c0', fontWeight: '200' }}>
+            <Typography
+              component="p"
+              variant="subtitle2"
+              sx={{ mt: 2, color: '#c0c0c0', fontWeight: '200' }}
+            >
               coming soon..
             </Typography>
           </Grid>
 
           <Grid xs={12} sx={{ mt: 16, mb: 2, textAlign: 'center' }}>
-            <Typography component="h4" variant="h4" sx={{ fontWeight: 'bold' }} className={styles.titleTextColor}>
+            <Typography
+              component="h4"
+              variant="h4"
+              sx={{ fontWeight: 'bold' }}
+              className={styles.titleTextColor}
+            >
               AkitaInuSwap
             </Typography>
-            <Typography component="p" variant="caption" sx={{ fontWeight: '200' }}>
+            <Typography
+              component="p"
+              variant="caption"
+              sx={{ fontWeight: '200' }}
+            >
               &copy; 2024 AkitaInuSwap - All rights reserved.
             </Typography>
           </Grid>
