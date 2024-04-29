@@ -1,21 +1,23 @@
 'use client'
 
 // Config
+import styles from '@/styles/Home.module.css'
 import { APP_NAME } from '@/config/site'
 import Head from 'next/head'
-import styles from '@/styles/Home.module.css'
 // React
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 // MUI
+import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
-import CardActionArea from '@mui/material/CardActionArea'
+import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
+import CardHeader from '@mui/material/CardHeader'
 import Divider from '@mui/material/Divider'
 import Grid from '@mui/material/Unstable_Grid2'
 import Typography from '@mui/material/Typography'
+import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded'
 // Components
-import Card from '@/components/Card'
 import Layout from '@/components/Layout'
 // Types
 import type { ReactElement } from 'react'
@@ -32,140 +34,211 @@ const Home: NextPageWithLayout = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Grid container spacing={2}>
-        <Grid xs={12} sx={{ mb: 2 }}>
-          <Image
-            src="/akitainuswap.png"
-            alt="Akita Inu"
-            layout="responsive"
-            width={800}
-            height={500}
-          />
-        </Grid>
 
-        <Grid xs={12} sx={{ mb: 3 }}>
-          <Typography
-            component="h4"
-            variant="h4"
-            sx={{ mb: 3, fontWeight: 'bold', textAlign: 'center' }}
-          >
-            About
-          </Typography>
-          <Typography component="p" variant="body1" sx={{ color: '#2b2b2b' }}>
-            Welcome to AkitaInuSwap. Here, AkitaInu is committed to operating
-            our decentralized exchange with reliability and integrity. Join us
-            for a seamless trading experience, where you have complete control
-            over your financial transactions in a secure and trustless
-            environment.
-          </Typography>
-        </Grid>
+      <Box sx={{ mt: 28 }}>
+        <Grid container spacing={2}>
+          <Grid xs={6}>
+            <Box>
+              <Typography variant="h3" sx={{ fontWeight: 'bold' }}>
+                <span className={styles.titleTextColor}>
+                  Unleash the Potential
+                </span>
+              </Typography>
+              <Typography variant="h3" sx={{ fontWeight: 'bold' }}>
+                of Decentralized
+              </Typography>
+              <Typography variant="h3" sx={{ fontWeight: 'bold' }}>
+                Trading on <span className={styles.titleTextColor}>XRPL</span>
+              </Typography>
+            </Box>
+            <Box sx={{ mt: 4 }}>
+              <Button
+                variant="outlined"
+                color="inherit"
+                endIcon={<ArrowForwardRoundedIcon />}
+                onClick={() => router.push('/swap')}
+              >
+                Try Trading
+              </Button>
+            </Box>
+          </Grid>
+          <Grid xs={6}>
+            <Image
+              src="/akitainuswap.png"
+              alt="Akita Inu"
+              layout="responsive"
+              width={800}
+              height={500}
+            />
+          </Grid>
 
-        <Grid xs={12} sx={{ mb: 3 }}>
-          <Divider />
-        </Grid>
+          <Grid xs={12} sx={{ mt: 16, textAlign: 'center' }}>
+            <Typography component="h4" variant="h4">
+              What is AkitaInuSwap?
+            </Typography>
+            <Typography
+              component="p"
+              variant="subtitle2"
+              sx={{ mt: 2, color: '#c0c0c0', fontWeight: '200' }}
+            >
+              A hyper-efficient decentralized crypto marketplace built on XRPL
+            </Typography>
+          </Grid>
 
-        <Grid xs={12}>
-          <Typography
-            component="h4"
-            variant="h4"
-            sx={{ mb: 2, fontWeight: 'bold', textAlign: 'center' }}
-          >
-            Discover the Ecosystem
-          </Typography>
-        </Grid>
-
-        <Grid xs={6}>
-          <Card>
-            <CardActionArea onClick={() => router.push('/swap')}>
-              <CardContent>
-                <Typography component="h5" variant="h5" sx={{ mb: 1 }}>
-                  Swap
+          <Grid xs={6}>
+            <Card
+              variant="outlined"
+              sx={{ backgroundColor: '#404040', color: 'white' }}
+            >
+              <CardContent sx={{ px: 6 }}>
+                <Typography component="h6" variant="h6">
+                  Trade
                 </Typography>
-                <Typography>
-                  Exchange one type of token for another quickly and securely on
-                  the XRPL.
+                <ul>
+                  <li>Trade any crypto on XRPL</li>
+                </ul>
+              </CardContent>
+            </Card>
+          </Grid>
+
+          <Grid xs={6}>
+            <Card
+              variant="outlined"
+              sx={{ backgroundColor: '#404040', color: 'white' }}
+            >
+              <CardContent sx={{ px: 6 }}>
+                <Typography component="h6" variant="h6">
+                  Earn
+                </Typography>
+                <ul>
+                  <li>Provide liquidity and earn fees from trades on XRPL</li>
+                </ul>
+              </CardContent>
+            </Card>
+          </Grid>
+
+          <Grid xs={12} sx={{ mt: 16, mb: 4, textAlign: 'center' }}>
+            <Typography component="h4" variant="h4">
+              Why AkitaInuSwap?
+            </Typography>
+          </Grid>
+
+          <Grid xs={3}>
+            <Card
+              variant="outlined"
+              sx={{
+                backgroundColor: '#404040',
+                color: 'white',
+                textAlign: 'center',
+              }}
+            >
+              <CardContent>
+                <Typography
+                  component="p"
+                  variant="subtitle2"
+                  sx={{ mt: 1, fontWeight: '200' }}
+                >
+                  Simplest Trades, Best Prices
                 </Typography>
               </CardContent>
-            </CardActionArea>
-          </Card>
-        </Grid>
+            </Card>
+          </Grid>
 
-        <Grid xs={6}>
-          <Card>
-            <CardActionArea onClick={() => router.push('/liquidity')}>
+          <Grid xs={3}>
+            <Card
+              variant="outlined"
+              sx={{
+                backgroundColor: '#404040',
+                color: 'white',
+                textAlign: 'center',
+              }}
+            >
               <CardContent>
-                <Typography component="h5" variant="h5" sx={{ mb: 1 }}>
-                  Liquidity
-                </Typography>
-                <Typography>
-                  Add or remove liquidity for XRPL pools here. Select a token
-                  pair, input amounts, and confirm to earn fees.
+                <Typography
+                  component="p"
+                  variant="subtitle2"
+                  sx={{ mt: 1, fontWeight: '200' }}
+                >
+                  Frictionless Liquidity Provision
                 </Typography>
               </CardContent>
-            </CardActionArea>
-          </Card>
-        </Grid>
+            </Card>
+          </Grid>
 
-        <Grid xs={12} sx={{ my: 3 }}>
-          <Divider />
-        </Grid>
+          <Grid xs={3}>
+            <Card
+              variant="outlined"
+              sx={{
+                backgroundColor: '#404040',
+                color: 'white',
+                textAlign: 'center',
+              }}
+            >
+              <CardContent>
+                <Typography
+                  component="p"
+                  variant="subtitle2"
+                  sx={{ mt: 1, fontWeight: '200' }}
+                >
+                  Discovery of Market Trends
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
 
-        <Grid xs={12}>
-          <Typography
-            component="h4"
-            variant="h4"
-            sx={{ mb: 2, fontWeight: 'bold', textAlign: 'center' }}
-          >
-            Tokenomics
-          </Typography>
-        </Grid>
+          <Grid xs={3}>
+            <Card
+              variant="outlined"
+              sx={{
+                backgroundColor: '#404040',
+                color: 'white',
+                textAlign: 'center',
+              }}
+            >
+              <CardContent>
+                <Typography
+                  component="p"
+                  variant="subtitle2"
+                  sx={{ mt: 1, fontWeight: '200' }}
+                >
+                  Non-custodial Platform
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
 
-        <Grid xs={6}>
-          <Typography component="p" variant="body1" sx={{ color: '#2b2b2b' }}>
-            Comming soon...
-          </Typography>
-        </Grid>
+          <Grid xs={12} sx={{ mt: 16, mb: 4, textAlign: 'center' }}>
+            <Typography component="h4" variant="h4">
+              Investors and Partners
+            </Typography>
+            <Typography
+              component="p"
+              variant="subtitle2"
+              sx={{ mt: 2, color: '#c0c0c0', fontWeight: '200' }}
+            >
+              coming soon..
+            </Typography>
+          </Grid>
 
-        <Grid xs={6}>
-          <Image
-            src="/akitainu1.png"
-            alt="Akita Inu"
-            layout="responsive"
-            width={250}
-            height={250}
-          />
+          <Grid xs={12} sx={{ mt: 16, mb: 2, textAlign: 'center' }}>
+            <Typography
+              component="h4"
+              variant="h4"
+              sx={{ fontWeight: 'bold' }}
+              className={styles.titleTextColor}
+            >
+              AkitaInuSwap
+            </Typography>
+            <Typography
+              component="p"
+              variant="caption"
+              sx={{ fontWeight: '200' }}
+            >
+              &copy; 2024 AkitaInuSwap - All rights reserved.
+            </Typography>
+          </Grid>
         </Grid>
-
-        <Grid xs={12} sx={{ my: 3 }}>
-          <Divider />
-        </Grid>
-
-        <Grid xs={12}>
-          <Typography
-            component="h4"
-            variant="h4"
-            sx={{ mb: 2, fontWeight: 'bold', textAlign: 'center' }}
-          >
-            Roadmap
-          </Typography>
-        </Grid>
-
-        <Grid xs={6}>
-          <Typography component="p" variant="body1" sx={{ color: '#2b2b2b' }}>
-            Comming soon...
-          </Typography>
-        </Grid>
-
-        <Grid xs={6} sx={{ mb: 8 }}>
-          <Image
-            src="/akitainu2.png"
-            alt="Akita Inu"
-            layout="responsive"
-            width={250}
-            height={250}
-          />
-        </Grid>
-      </Grid>
+      </Box>
     </>
   )
 }
