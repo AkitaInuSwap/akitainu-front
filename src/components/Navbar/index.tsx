@@ -29,7 +29,7 @@ const Navbar = () => {
     <AppBar
       elevation={0}
       sx={{
-        backgroundColor: '#583822',
+        backgroundColor: '#3f3f3f',
       }}
     >
       <Toolbar>
