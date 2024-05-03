@@ -1,3 +1,5 @@
+// React
+import { useRouter } from 'next/router'
 // Providers
 import Providers from '@/providers'
 // MUI
@@ -18,10 +20,15 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children, navigations }) => {
+  const router = useRouter()
+
   return (
     <Providers>
       <Navbar />
-      <Container maxWidth="lg" sx={{ mt: 12 }}>
+      <Container
+        maxWidth={router.asPath === '/swap' ? 'xs' : 'lg'}
+        sx={{ mt: 12 }}
+      >
         {navigations && (
           <Grid container spacing={2}>
             <Grid xs={12} sx={{ mb: 2 }}>
