@@ -6,7 +6,14 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ children }) => {
-  return <MuiCard variant="outlined">{children}</MuiCard>
+  return (
+    <MuiCard
+      variant="outlined"
+      sx={{ backgroundColor: '#404040', color: 'white' }}
+    >
+      {children}
+    </MuiCard>
+  )
 }
 
 export default Card

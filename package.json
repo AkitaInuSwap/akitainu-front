@@ -20,7 +20,9 @@
     "@mui/material": "^5.15.15",
     "next": "14.2.2",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-hook-form": "^7.51.3",
+    "zod": "^3.23.6"
   },
   "devDependencies": {
     "@types/node": "^20",
