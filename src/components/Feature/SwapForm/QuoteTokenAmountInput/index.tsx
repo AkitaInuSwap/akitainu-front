@@ -10,7 +10,9 @@ interface QuoteTokenAmountInputProps {
   control: Control<SwapFormSchema, any>
 }
 
-const QuoteTokenAmountInput: React.FC<QuoteTokenAmountInputProps> = ({ control }) => {
+const QuoteTokenAmountInput: React.FC<QuoteTokenAmountInputProps> = ({
+  control,
+}) => {
   return (
     <Controller
       name="quoteAmount"

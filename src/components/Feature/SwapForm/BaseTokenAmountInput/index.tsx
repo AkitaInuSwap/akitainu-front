@@ -10,7 +10,9 @@ interface BaseTokenAmountInputProps {
   control: Control<SwapFormSchema, any>
 }
 
-const BaseTokenAmountInput: React.FC<BaseTokenAmountInputProps> = ({ control }) => {
+const BaseTokenAmountInput: React.FC<BaseTokenAmountInputProps> = ({
+  control,
+}) => {
   return (
     <Controller
       name="baseAmount"
