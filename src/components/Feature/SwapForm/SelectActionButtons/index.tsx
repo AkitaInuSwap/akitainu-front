@@ -10,11 +10,24 @@ const SelectActionButtons: React.FC = () => {
         color="info"
         size="small"
         disableElevation
-        sx={{ mr: 1 }}
+        sx={{
+          mr: 1,
+          backgroundColor: '#7f7f7f',
+          '&:hover': { backgroundColor: '#5f5f5f' },
+        }}
       >
         Half
       </Button>
-      <Button variant="contained" color="info" size="small" disableElevation>
+      <Button
+        variant="contained"
+        color="info"
+        size="small"
+        disableElevation
+        sx={{
+          backgroundColor: '#7f7f7f',
+          '&:hover': { backgroundColor: '#5f5f5f' },
+        }}
+      >
         Max
       </Button>
     </Box>

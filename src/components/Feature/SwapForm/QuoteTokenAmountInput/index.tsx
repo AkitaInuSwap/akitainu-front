@@ -2,16 +2,19 @@
 import { Controller } from 'react-hook-form'
 // MUI
 import TextField from '@mui/material/TextField'
+import Typography from '@mui/material/Typography'
 // Types
 import type { Control } from 'react-hook-form'
 import type { SwapFormSchema } from '@/schema/swap-form-schema'
 
 interface QuoteTokenAmountInputProps {
   control: Control<SwapFormSchema, any>
+  symbol?: string
 }
 
 const QuoteTokenAmountInput: React.FC<QuoteTokenAmountInputProps> = ({
   control,
+  symbol,
 }) => {
   return (
     <Controller
@@ -27,6 +30,13 @@ const QuoteTokenAmountInput: React.FC<QuoteTokenAmountInputProps> = ({
           variant="outlined"
           placeholder="0.0"
           fullWidth
+          InputProps={{
+            endAdornment: (
+              <Typography sx={{ color: 'white' }}>
+                {symbol ? symbol : ''}
+              </Typography>
+            ),
+          }}
           error={errors.quoteAmount ? true : false}
           helperText={errors.quoteAmount?.message as string}
           sx={{ mb: 2, input: { color: 'white' } }}

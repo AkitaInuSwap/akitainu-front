@@ -4,10 +4,21 @@ import Box from '@mui/material/Box'
 import SelectTokenButton from '@/components/Feature/SwapForm/SelectTokenButton'
 import SelectActionButtons from '@/components/Feature/SwapForm/SelectActionButtons'
 
-const TokenSelectionControls: React.FC = () => {
+interface TokenSelectionControlsProps {
+  selectTokenButtonLabel: string
+  onTokenSelect: () => void
+}
+
+const TokenSelectionControls: React.FC<TokenSelectionControlsProps> = ({
+  selectTokenButtonLabel,
+  onTokenSelect,
+}) => {
   return (
     <Box display="flex" justifyContent="space-between" sx={{ mb: 2 }}>
-      <SelectTokenButton />
+      <SelectTokenButton
+        onClick={onTokenSelect}
+        label={selectTokenButtonLabel}
+      />
       <SelectActionButtons />
     </Box>
   )
