@@ -42,6 +42,13 @@ export class TokenRepository implements ITokenRepository {
     decimal: number
     rate: number
   }): Token {
-    return new Token(name, symbol, issuer, icon, decimal, rate)
+    return new Token({
+      name,
+      symbol,
+      issuer,
+      icon,
+      decimal,
+      rate,
+    })
   }
 }

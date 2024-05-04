@@ -64,11 +64,10 @@ const Home: NextPageWithLayout = () => {
           </Grid>
           <Grid xs={6}>
             <Image
-              src="/akitainuswap.png"
-              alt="Akita Inu"
-              layout="responsive"
-              width={800}
-              height={500}
+              src={'/akitainuswap.png'}
+              alt="AkitaInu"
+              width={584}
+              height={332}
             />
           </Grid>
 

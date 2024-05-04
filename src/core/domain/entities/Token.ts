@@ -1,10 +1,30 @@
+import { z } from 'zod'
+
+export const tokenEntitySchema = z.object({
+  name: z.string(),
+  symbol: z.string(),
+  issuer: z.string(),
+  icon: z.string(),
+  decimal: z.number(),
+  rate: z.number(),
+})
+
+export type TokenEntity = z.infer<typeof tokenEntitySchema>
+
 export class Token {
-  constructor(
-    private _name: string,
-    private _symbol: string,
-    private _issuer: string,
-    private _icon: string,
-    private _decimal: number,
-    private _rate: number
-  ) {}
+  public name: string
+  public symbol: string
+  public issuer: string
+  public icon: string
+  public decimal: number
+  public rate: number
+
+  constructor({ name, symbol, issuer, icon, decimal, rate }: TokenEntity) {
+    this.name = name
+    this.symbol = symbol
+    this.issuer = issuer
+    this.icon = icon
+    this.decimal = decimal
+    this.rate = rate
+  }
 }
