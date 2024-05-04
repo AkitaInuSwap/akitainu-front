@@ -2,18 +2,23 @@
 import Button from '@mui/material/Button'
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'
 
-interface SelectTokenButtonProps {}
+interface SelectTokenButtonProps {
+  onClick?: () => void
+}
 
-const SelectTokenButton: React.FC<SelectTokenButtonProps> = () => {
+const SelectTokenButton: React.FC<SelectTokenButtonProps> = ({ onClick }) => {
   return (
-    <Button
-      variant="outlined"
-      color="info"
-      disableElevation
-      endIcon={<ArrowDropDownIcon />}
-    >
-      Select Token
-    </Button>
+    <>
+      <Button
+        variant="outlined"
+        color="info"
+        disableElevation
+        onClick={onClick}
+        endIcon={<ArrowDropDownIcon />}
+      >
+        Select Token
+      </Button>
+    </>
   )
 }
 

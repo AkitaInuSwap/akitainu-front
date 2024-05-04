@@ -1,13 +1,25 @@
 'use client'
 
+// Config
+import { COINS } from '@/config/coins'
 // React
 import { useState } from 'react'
 // Lib
-import { useForm, Controller } from 'react-hook-form'
+import crossmark from '@crossmarkio/sdk'
+import { useForm } from 'react-hook-form'
 // MUI
+import Avatar from '@mui/material/Avatar'
 import Box from '@mui/material/Box'
+import Dialog from '@mui/material/Dialog'
+import DialogContent from '@mui/material/DialogContent'
+import DialogTitle from '@mui/material/DialogTitle'
 import Divider from '@mui/material/Divider'
 import IconButton from '@mui/material/IconButton'
+import List from '@mui/material/List'
+import ListItem from '@mui/material/ListItem'
+import ListItemAvatar from '@mui/material/ListItemAvatar'
+import ListItemButton from '@mui/material/ListItemButton'
+import ListItemText from '@mui/material/ListItemText'
 import LoadingButton from '@mui/lab/LoadingButton'
 import TextField from '@mui/material/TextField'
 import SwapVertIcon from '@mui/icons-material/SwapVert'
@@ -24,20 +36,53 @@ import type { SwapFormSchema } from '@/schema/swap-form-schema'
 interface SwapFormProps {}
 
 interface TokenData {
+  symbol?: string
   rate?: number
   balance?: number
 }
 
 const SwapForm: React.FC<SwapFormProps> = () => {
   const [loading, setLoading] = useState<boolean>(false)
+
+  const [open, setOpen] = useState<boolean>(false)
+  const [side, setSide] = useState<'base' | 'quote'>('base')
+
   const [baseToken, setBaseToken] = useState<TokenData>({
+    symbol: '',
     rate: 0,
     balance: 0,
   })
   const [quoteToken, setQuoteToken] = useState<TokenData>({
+    symbol: '',
     rate: 0,
     balance: 0,
   })
+
+  const handleClose = () => {
+    setOpen(false)
+  }
+
+  const handleOpen = (side: 'base' | 'quote') => {
+    setSide(side)
+    setOpen(true)
+  }
+
+  const handleSelectToken = async (symbol: string) => {
+    if (side === 'base') {
+      setBaseToken({
+        symbol: symbol,
+        rate: 0,
+        balance: 0,
+      })
+    } else {
+      setQuoteToken({
+        symbol: symbol,
+        rate: 0,
+        balance: 0,
+      })
+    }
+    setOpen(false)
+  }
 
   const {
     control,
@@ -74,8 +119,8 @@ const SwapForm: React.FC<SwapFormProps> = () => {
           rate={baseToken.rate}
           balance={baseToken.balance}
         />
-        <BaseTokenAmountInput control={control} />
-        <TokenSelectionControls />
+        <BaseTokenAmountInput control={control} symbol={baseToken.symbol} />
+        <TokenSelectionControls onTokenSelect={() => handleOpen('base')} />
 
         {/* Divider */}
         <Divider sx={{ my: 3 }} color="white">
@@ -89,8 +134,8 @@ const SwapForm: React.FC<SwapFormProps> = () => {
           rate={quoteToken.rate}
           balance={quoteToken.balance}
         />
-        <QuoteTokenAmountInput control={control} />
-        <TokenSelectionControls />
+        <QuoteTokenAmountInput control={control} symbol={quoteToken.symbol} />
+        <TokenSelectionControls onTokenSelect={() => handleOpen('quote')} />
       </Box>
 
       <Box>
@@ -104,6 +149,36 @@ const SwapForm: React.FC<SwapFormProps> = () => {
           Swap
         </LoadingButton>
       </Box>
+      <Dialog open={open} onClose={handleClose}
+        maxWidth="xs"
+        fullWidth
+      >
+        <DialogTitle>Select Token</DialogTitle>
+        <DialogContent dividers>
+          <Box sx={{ mt: 1 }}>
+            <TextField fullWidth label="Search token" variant="outlined" />
+          </Box>
+          <Box>
+            <List dense>
+              {COINS.map((coin) => {
+                return (
+                  <ListItem key={coin.id} disablePadding>
+                    <ListItemButton onClick={() => handleSelectToken(coin.symbol)}>
+                      <ListItemAvatar>
+                        <Avatar alt={coin.symbol} src={coin.icon} />
+                      </ListItemAvatar>
+                      <ListItemText
+                        primary={coin.symbol}
+                        secondary="0"
+                      />
+                    </ListItemButton>
+                  </ListItem>
+                )
+              })}
+            </List>
+          </Box>
+        </DialogContent>
+      </Dialog>
     </Box>
   )
 }
