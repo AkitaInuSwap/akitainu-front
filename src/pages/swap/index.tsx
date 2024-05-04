@@ -1,23 +1,13 @@
 'use client'
 
 // React
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 // Lib
-import { useForm, Controller } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 // MUI
-import Box from '@mui/material/Box'
-import Button from '@mui/material/Button'
 import CardContent from '@mui/material/CardContent'
-import Divider from '@mui/material/Divider'
 import Grid from '@mui/material/Unstable_Grid2'
-import IconButton from '@mui/material/IconButton'
-import LoadingButton from '@mui/lab/LoadingButton'
-import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'
-import AutorenewIcon from '@mui/icons-material/Autorenew'
-import SwapVertIcon from '@mui/icons-material/SwapVert'
-import TuneIcon from '@mui/icons-material/Tune'
 // Components
 import Card from '@/components/Card'
 import SwapForm from '@/components/Feature/SwapForm'
@@ -57,6 +47,8 @@ const Swap: NextPageWithLayout = () => {
       setLoading(false)
     }
   }
+
+  useEffect(() => {}, [])
 
   return (
     <Grid container spacing={2}>

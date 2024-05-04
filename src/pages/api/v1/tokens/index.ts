@@ -14,7 +14,7 @@ const cmcClient = new CmcClient()
 const tokenRepository = new TokenRepository(cmcClient)
 const tokenService = new TokenService(tokenRepository)
 
-export default async  function handler(
+export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ApiResponse>
 ) {
@@ -24,13 +24,9 @@ export default async  function handler(
   } catch (error: unknown) {
     console.error(error)
     if (error instanceof Error) {
-      return res
-        .status(500)
-        .json({ error: { message: error.message } })
+      return res.status(500).json({ error: { message: error.message } })
     } else {
-      return res
-        .status(500)
-        .json({ error: { message: 'An error occurred' } })
+      return res.status(500).json({ error: { message: 'An error occurred' } })
     }
   }
 }

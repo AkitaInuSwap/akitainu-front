@@ -1,35 +1,25 @@
 'use client'
 
-// Config
-import { COINS } from '@/config/coins'
 // React
 import { useState } from 'react'
 // Lib
-import crossmark from '@crossmarkio/sdk'
 import { useForm } from 'react-hook-form'
 // MUI
-import Avatar from '@mui/material/Avatar'
 import Box from '@mui/material/Box'
-import Dialog from '@mui/material/Dialog'
-import DialogContent from '@mui/material/DialogContent'
-import DialogTitle from '@mui/material/DialogTitle'
 import Divider from '@mui/material/Divider'
 import IconButton from '@mui/material/IconButton'
-import List from '@mui/material/List'
-import ListItem from '@mui/material/ListItem'
-import ListItemAvatar from '@mui/material/ListItemAvatar'
-import ListItemButton from '@mui/material/ListItemButton'
-import ListItemText from '@mui/material/ListItemText'
 import LoadingButton from '@mui/lab/LoadingButton'
-import TextField from '@mui/material/TextField'
 import SwapVertIcon from '@mui/icons-material/SwapVert'
 // Components
 import AdjustmentButton from '@/components/Feature/SwapForm/AdjustmentButton'
 import BaseTokenAmountInput from '@/components/Feature/SwapForm/BaseTokenAmountInput'
 import QuoteTokenAmountInput from '@/components/Feature/SwapForm/QuoteTokenAmountInput'
 import RefreshButton from '@/components/Feature/SwapForm/RefreshButton'
+import TokenSelectDialog from '@/components/Feature/SwapForm/TokenSelectDialog'
 import TokenSelectionControls from '@/components/Feature/SwapForm/TokenSelectionControls'
 import TokenRateAndBalance from '@/components/Feature/SwapForm/TokenRateAndBalance'
+// Hooks
+import useTokens from '@/hooks/useTokens'
 // Types
 import type { SwapFormSchema } from '@/schema/swap-form-schema'
 
@@ -42,6 +32,8 @@ interface TokenData {
 }
 
 const SwapForm: React.FC<SwapFormProps> = () => {
+  const { tokens } = useTokens()
+
   const [loading, setLoading] = useState<boolean>(false)
 
   const [open, setOpen] = useState<boolean>(false)
@@ -84,6 +76,12 @@ const SwapForm: React.FC<SwapFormProps> = () => {
     setOpen(false)
   }
 
+  const handleSwitchTokens = () => {
+    const temp = { ...baseToken }
+    setBaseToken({ ...quoteToken })
+    setQuoteToken({ ...temp })
+  }
+
   const {
     control,
     handleSubmit,
@@ -120,11 +118,16 @@ const SwapForm: React.FC<SwapFormProps> = () => {
           balance={baseToken.balance}
         />
         <BaseTokenAmountInput control={control} symbol={baseToken.symbol} />
-        <TokenSelectionControls onTokenSelect={() => handleOpen('base')} />
+        <TokenSelectionControls
+          selectTokenButtonLabel={
+            baseToken.symbol ? baseToken.symbol : 'Select Token'
+          }
+          onTokenSelect={() => handleOpen('base')}
+        />
 
         {/* Divider */}
         <Divider sx={{ my: 3 }} color="white">
-          <IconButton>
+          <IconButton onClick={handleSwitchTokens}>
             <SwapVertIcon sx={{ color: 'white' }} />
           </IconButton>
         </Divider>
@@ -135,13 +138,19 @@ const SwapForm: React.FC<SwapFormProps> = () => {
           balance={quoteToken.balance}
         />
         <QuoteTokenAmountInput control={control} symbol={quoteToken.symbol} />
-        <TokenSelectionControls onTokenSelect={() => handleOpen('quote')} />
+        <TokenSelectionControls
+          selectTokenButtonLabel={
+            quoteToken.symbol ? quoteToken.symbol : 'Select Token'
+          }
+          onTokenSelect={() => handleOpen('quote')}
+        />
       </Box>
 
-      <Box>
+      <Box sx={{ mt: 3 }}>
         <LoadingButton
           variant="contained"
           type="submit"
+          size="large"
           fullWidth
           disableElevation
           loading={loading}
@@ -149,32 +158,14 @@ const SwapForm: React.FC<SwapFormProps> = () => {
           Swap
         </LoadingButton>
       </Box>
-      <Dialog open={open} onClose={handleClose} maxWidth="xs" fullWidth>
-        <DialogTitle>Select Token</DialogTitle>
-        <DialogContent dividers>
-          <Box sx={{ mt: 1 }}>
-            <TextField fullWidth label="Search token" variant="outlined" />
-          </Box>
-          <Box>
-            <List dense>
-              {COINS.map((coin) => {
-                return (
-                  <ListItem key={coin.id} disablePadding>
-                    <ListItemButton
-                      onClick={() => handleSelectToken(coin.symbol)}
-                    >
-                      <ListItemAvatar>
-                        <Avatar alt={coin.symbol} src={coin.icon} />
-                      </ListItemAvatar>
-                      <ListItemText primary={coin.symbol} secondary="0" />
-                    </ListItemButton>
-                  </ListItem>
-                )
-              })}
-            </List>
-          </Box>
-        </DialogContent>
-      </Dialog>
+
+      {/* TokenSelectDialog */}
+      <TokenSelectDialog
+        open={open}
+        onClose={handleClose}
+        tokens={tokens}
+        onSelectToken={handleSelectToken}
+      />
     </Box>
   )
 }
