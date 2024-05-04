@@ -31,7 +31,11 @@ const QuoteTokenAmountInput: React.FC<QuoteTokenAmountInputProps> = ({
           placeholder="0.0"
           fullWidth
           InputProps={{
-            endAdornment: <Typography sx={{ color: 'white' }}>{symbol ? symbol : ''}</Typography>,
+            endAdornment: (
+              <Typography sx={{ color: 'white' }}>
+                {symbol ? symbol : ''}
+              </Typography>
+            ),
           }}
           error={errors.quoteAmount ? true : false}
           helperText={errors.quoteAmount?.message as string}

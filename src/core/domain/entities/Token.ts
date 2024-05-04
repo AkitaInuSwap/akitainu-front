@@ -5,6 +5,6 @@ export class Token {
     private _issuer: string,
     private _icon: string,
     private _decimal: number,
-    private _rate: number,
+    private _rate: number
   ) {}
 }

@@ -7,9 +7,7 @@ export interface ITokenRepository {
 }
 
 export class TokenRepository implements ITokenRepository {
-  constructor(
-    private cmcClient: ICmcClient
-  ) {}
+  constructor(private cmcClient: ICmcClient) {}
 
   async getTokens(): Promise<Token[]> {
     let token: Token[] = []
@@ -18,7 +16,7 @@ export class TokenRepository implements ITokenRepository {
       const tokenEntity = this.toEntity({
         name: coin.name,
         symbol: coin.symbol,
-        issuer: "",
+        issuer: '',
         icon: coin.icon,
         decimal: 0,
         rate: 0,

@@ -31,7 +31,11 @@ const BaseTokenAmountInput: React.FC<BaseTokenAmountInputProps> = ({
           placeholder="0.0"
           fullWidth
           InputProps={{
-            endAdornment: <Typography sx={{ color: 'white' }}>{symbol ? symbol : ''}</Typography>,
+            endAdornment: (
+              <Typography sx={{ color: 'white' }}>
+                {symbol ? symbol : ''}
+              </Typography>
+            ),
           }}
           error={errors.baseAmount ? true : false}
           helperText={errors.baseAmount?.message as string}

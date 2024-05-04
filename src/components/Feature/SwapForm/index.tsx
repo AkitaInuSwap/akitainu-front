@@ -149,10 +149,7 @@ const SwapForm: React.FC<SwapFormProps> = () => {
           Swap
         </LoadingButton>
       </Box>
-      <Dialog open={open} onClose={handleClose}
-        maxWidth="xs"
-        fullWidth
-      >
+      <Dialog open={open} onClose={handleClose} maxWidth="xs" fullWidth>
         <DialogTitle>Select Token</DialogTitle>
         <DialogContent dividers>
           <Box sx={{ mt: 1 }}>
@@ -163,14 +160,13 @@ const SwapForm: React.FC<SwapFormProps> = () => {
               {COINS.map((coin) => {
                 return (
                   <ListItem key={coin.id} disablePadding>
-                    <ListItemButton onClick={() => handleSelectToken(coin.symbol)}>
+                    <ListItemButton
+                      onClick={() => handleSelectToken(coin.symbol)}
+                    >
                       <ListItemAvatar>
                         <Avatar alt={coin.symbol} src={coin.icon} />
                       </ListItemAvatar>
-                      <ListItemText
-                        primary={coin.symbol}
-                        secondary="0"
-                      />
+                      <ListItemText primary={coin.symbol} secondary="0" />
                     </ListItemButton>
                   </ListItem>
                 )

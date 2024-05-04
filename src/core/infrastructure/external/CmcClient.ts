@@ -1,5 +1,5 @@
 import axios from 'axios'
-import type { AxiosInstance } from 'axios';
+import type { AxiosInstance } from 'axios'
 
 const CMC_CATEGORY_ID = '605bc602972c9053da7021a9'
 
@@ -13,17 +13,16 @@ export class CmcClient implements ICmcClient {
       baseURL: 'https://pro-api.coinmarketcap.com',
       headers: {
         'X-CMC_PRO_API_KEY': process.env.API_CMC_KEY,
-      }
+      },
     })
   }
-
 
   private async fetchCategory() {
     try {
       const response = await this.apiClient.get('/v1/cryptocurrency/category', {
         params: {
           id: CMC_CATEGORY_ID,
-        }
+        },
       })
 
       if (response.status !== 200) {
