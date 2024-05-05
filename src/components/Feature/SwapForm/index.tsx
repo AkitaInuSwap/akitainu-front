@@ -15,8 +15,9 @@ import AdjustmentButton from '@/components/Feature/SwapForm/AdjustmentButton'
 import BaseTokenAmountInput from '@/components/Feature/SwapForm/BaseTokenAmountInput'
 import QuoteTokenAmountInput from '@/components/Feature/SwapForm/QuoteTokenAmountInput'
 import RefreshButton from '@/components/Feature/SwapForm/RefreshButton'
+import SelectActionButtons from '@/components/Feature/SwapForm/SelectActionButtons'
+import SelectTokenButton from '@/components/Feature/SwapForm/SelectTokenButton'
 import TokenSelectDialog from '@/components/Feature/SwapForm/TokenSelectDialog'
-import TokenSelectionControls from '@/components/Feature/SwapForm/TokenSelectionControls'
 import TokenRateAndBalance from '@/components/Feature/SwapForm/TokenRateAndBalance'
 // Hooks
 import useTokens from '@/hooks/useTokens'
@@ -118,12 +119,13 @@ const SwapForm: React.FC<SwapFormProps> = () => {
           balance={baseToken.balance}
         />
         <BaseTokenAmountInput control={control} symbol={baseToken.symbol} />
-        <TokenSelectionControls
-          selectTokenButtonLabel={
-            baseToken.symbol ? baseToken.symbol : 'Select Token'
-          }
-          onTokenSelect={() => handleOpen('base')}
-        />
+        <Box display="flex" justifyContent="space-between" sx={{ mb: 2 }}>
+          <SelectTokenButton
+          onClick={() => handleOpen('base')}
+            label={baseToken.symbol ? baseToken.symbol : 'Select Token'}
+          />
+          <SelectActionButtons />
+        </Box>
 
         {/* Divider */}
         <Divider sx={{ my: 3 }} color="white">
@@ -138,12 +140,13 @@ const SwapForm: React.FC<SwapFormProps> = () => {
           balance={quoteToken.balance}
         />
         <QuoteTokenAmountInput control={control} symbol={quoteToken.symbol} />
-        <TokenSelectionControls
-          selectTokenButtonLabel={
-            quoteToken.symbol ? quoteToken.symbol : 'Select Token'
-          }
-          onTokenSelect={() => handleOpen('quote')}
-        />
+        <Box display="flex" justifyContent="space-between" sx={{ mb: 2 }}>
+          <SelectTokenButton
+            onClick={() => handleOpen('quote')}
+            label={quoteToken.symbol ? quoteToken.symbol : 'Select Token'}
+          />
+          <SelectActionButtons />
+        </Box>
       </Box>
 
       <Box sx={{ mt: 3 }}>
