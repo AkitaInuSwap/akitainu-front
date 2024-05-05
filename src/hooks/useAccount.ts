@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { AccountContext } from '@/providers/AccountContextProvider'
 
 const useAccount = () => {
@@ -9,6 +9,20 @@ const useAccount = () => {
   }
 
   const [account] = accountContext
+
+  const fetchTokenBalances = async () => {
+    try {
+      //
+    } catch (error: unknown) {
+      console.error(error)
+    }
+  }
+
+  useEffect(() => {
+    if (account.address) {
+      console.log('Account address:', account.address)
+    }
+  }, [account])
 
   return {
     address: account.address,

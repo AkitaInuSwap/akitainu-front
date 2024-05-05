@@ -6,9 +6,11 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 // MUI
 import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
 import Divider from '@mui/material/Divider'
 import IconButton from '@mui/material/IconButton'
 import LoadingButton from '@mui/lab/LoadingButton'
+import Typography from '@mui/material/Typography'
 import SwapVertIcon from '@mui/icons-material/SwapVert'
 // Components
 import AdjustmentButton from '@/components/Feature/SwapForm/AdjustmentButton'
@@ -20,6 +22,7 @@ import SelectTokenButton from '@/components/Feature/SwapForm/SelectTokenButton'
 import TokenSelectDialog from '@/components/Feature/SwapForm/TokenSelectDialog'
 import TokenRateAndBalance from '@/components/Feature/SwapForm/TokenRateAndBalance'
 // Hooks
+import useAccount from '@/hooks/useAccount'
 import useTokens from '@/hooks/useTokens'
 // Types
 import type { SwapFormSchema } from '@/schema/swap-form-schema'
@@ -33,6 +36,7 @@ interface TokenData {
 }
 
 const SwapForm: React.FC<SwapFormProps> = () => {
+  const { address } = useAccount()
   const { tokens } = useTokens()
 
   const [loading, setLoading] = useState<boolean>(false)
@@ -150,16 +154,27 @@ const SwapForm: React.FC<SwapFormProps> = () => {
       </Box>
 
       <Box sx={{ mt: 3 }}>
-        <LoadingButton
-          variant="contained"
-          type="submit"
-          size="large"
-          fullWidth
-          disableElevation
-          loading={loading}
-        >
-          Swap
-        </LoadingButton>
+        {!address && (
+          <Typography
+            component="p"
+            variant="body1"
+            sx={{ textAlign: 'center' }}
+          >
+            Please connect your wallet
+          </Typography>
+        )}
+        {address && (
+          <LoadingButton
+            variant="contained"
+            type="submit"
+            size="large"
+            fullWidth
+            disableElevation
+            loading={loading}
+          >
+            Swap
+          </LoadingButton>
+        )}
       </Box>
 
       {/* TokenSelectDialog */}

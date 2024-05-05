@@ -5,7 +5,7 @@ interface ITokenService {
   getAllTokens(): Promise<Token[]>
 }
 
-export class TokenService {
+export class TokenService implements ITokenService {
   constructor(private tokenRepository: TokenRepository) {}
 
   public async getAllTokens() {

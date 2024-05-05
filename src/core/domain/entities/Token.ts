@@ -6,7 +6,7 @@ export const tokenEntitySchema = z.object({
   issuer: z.string(),
   icon: z.string(),
   decimal: z.number(),
-  rate: z.number(),
+  rate: z.number().nullable(),
 })
 
 export type TokenEntity = z.infer<typeof tokenEntitySchema>
@@ -17,7 +17,7 @@ export class Token {
   public issuer: string
   public icon: string
   public decimal: number
-  public rate: number
+  public rate?: number | null
 
   constructor({ name, symbol, issuer, icon, decimal, rate }: TokenEntity) {
     this.name = name
@@ -25,6 +25,6 @@ export class Token {
     this.issuer = issuer
     this.icon = icon
     this.decimal = decimal
-    this.rate = rate
+    this.rate = rate !== null ? rate : 0
   }
 }
