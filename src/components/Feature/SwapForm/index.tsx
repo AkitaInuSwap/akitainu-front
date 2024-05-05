@@ -121,7 +121,7 @@ const SwapForm: React.FC<SwapFormProps> = () => {
         <BaseTokenAmountInput control={control} symbol={baseToken.symbol} />
         <Box display="flex" justifyContent="space-between" sx={{ mb: 2 }}>
           <SelectTokenButton
-          onClick={() => handleOpen('base')}
+            onClick={() => handleOpen('base')}
             label={baseToken.symbol ? baseToken.symbol : 'Select Token'}
           />
           <SelectActionButtons />
